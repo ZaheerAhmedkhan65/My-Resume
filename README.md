@@ -1,18 +1,24 @@
+# Muhammad Abdullah Portfolio
 
-Visit My Portfolio: https://muhammadabdullaah.github.io/My-Resume/
+Modern personal portfolio for **Muhammad Abdullah**, a **Ruby on Rails Developer**, **Backend Developer**, and **API Developer** from Pakistan.
 
-# Muhammad Abdullah's Portfolio
+Live site: [muhammadabdullaah.github.io/My-Resume](https://muhammadabdullaah.github.io/My-Resume/)
 
-Welcome to my digital portfolio. This repository contains the personal resume of **Muhammad Abdullah**, showcasing my professional skills, education, experience, and projects. The website is built using HTML, CSS, and Bootstrap to provide a responsive, modern look.
+## Highlights
 
-## Features
+- Clean, responsive portfolio design for freelance clients and hiring teams
+- Ruby on Rails focused positioning with backend-first project storytelling
+- SEO-ready meta tags, Open Graph tags, structured data, `robots.txt`, and `sitemap.xml`
+- Optimized portfolio images and lightweight front-end assets for fast loading
+- Static contact form flow designed for GitHub Pages deployment
 
-- **Responsive design**: Mobile-friendly and adaptive across devices.
-- **Social media links**: Connect with me through Facebook, LinkedIn, and more.
-- **Modern UI**: Clean and sleek design for a professional online presence.
+## Tech
 
-
-Thank you for visiting my portfolio. I hope you find it insightful!
+- HTML
+- CSS
+- JavaScript
+- AOS
+- GitHub Pages
 
 
 ## Installation
