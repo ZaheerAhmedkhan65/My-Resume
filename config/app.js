@@ -91,7 +91,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     res.locals.path = req.originalUrl;
     res.locals.title = "IBC Tank Store";
-    if (req.path.startsWith("/admin")) {
+    if (req.user && req.path.startsWith("/admin")) {
         res.locals.layout = "layouts/admin";
     } else {
         res.locals.layout = "layouts/application";

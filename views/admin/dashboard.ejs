@@ -1,0 +1,171 @@
+<div class="container py-4">
+
+  <!-- Page Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h1 class="h3 fw-bold">Admin Dashboard</h1>
+      <p class="text-muted">Welcome back, <strong><%= user.name || user.email %></strong></p>
+    </div>
+    <a href="/admin/users" class="btn btn-outline-primary">
+      <i class="bi bi-people me-2"></i>Manage Users
+    </a>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-6 col-lg-3">
+      <div class="card bg-primary text-white shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="text-white-50">Total Users</h6>
+              <h3 class="fw-bold mb-0"><%= stats.totalUsers || 0 %></h3>
+            </div>
+            <div class="align-self-end">
+              <i class="bi bi-people fs-1 opacity-50"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card bg-info text-white shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="text-white-50">Total Contacts</h6>
+              <h3 class="fw-bold mb-0"><%= stats.totalContacts || 0 %></h3>
+            </div>
+            <div class="align-self-end">
+              <i class="bi bi-envelope fs-1 opacity-50"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card bg-warning text-white shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="text-white-50">New Messages</h6>
+              <h3 class="fw-bold mb-0"><%= stats.newContacts || 0 %></h3>
+            </div>
+            <div class="align-self-end">
+              <i class="bi bi-chat-dots fs-1 opacity-50"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card bg-success text-white shadow-sm h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="text-white-50">Replied</h6>
+              <h3 class="fw-bold mb-0"><%= stats.repliedContacts || 0 %></h3>
+            </div>
+            <div class="align-self-end">
+              <i class="bi bi-check-circle fs-1 opacity-50"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Recent Users & Contacts -->
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Recent Users</h5>
+          <a href="/admin/users" class="btn btn-sm btn-outline-primary">View All</a>
+        </div>
+        <div class="card-body p-0">
+          <% if (recentUsers && recentUsers.length > 0) { %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% recentUsers.forEach(function(u) { %>
+                    <tr>
+                      <td><%= u.name %></td>
+                      <td><%= u.email %></td>
+                      <td>
+                        <span class="badge bg-<%= u.role === 'admin' ? 'danger' : 'primary' %>">
+                          <%= u.role %>
+                        </span>
+                      </td>
+                      <td class="text-end">
+                        <a href="/admin/users/<%= u.id %>" class="btn btn-sm btn-outline-primary">View</a>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          <% } else { %>
+            <div class="text-center py-4 text-muted">
+              <p>No users found.</p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Recent Contacts</h5>
+          <a href="/admin/contacts" class="btn btn-sm btn-outline-primary">View All</a>
+        </div>
+        <div class="card-body p-0">
+          <% if (recentContacts && recentContacts.length > 0) { %>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th class="text-end">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% recentContacts.forEach(function(c) { %>
+                    <tr>
+                      <td><%= c.name %></td>
+                      <td><%= c.email %></td>
+                      <td>
+                        <span class="badge bg-<%= c.status === 'new' ? 'warning' : c.status === 'read' ? 'info' : 'success' %>">
+                          <%= c.status %>
+                        </span>
+                      </td>
+                      <td class="text-end">
+                        <a href="/admin/contacts/<%= c.id %>" class="btn btn-sm btn-outline-primary">View</a>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          <% } else { %>
+            <div class="text-center py-4 text-muted">
+              <p>No contacts found.</p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

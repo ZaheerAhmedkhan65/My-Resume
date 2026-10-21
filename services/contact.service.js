@@ -53,8 +53,8 @@ class ContactService {
 
         if (!message) {
             details.message = 'Message is required.';
-        } else if (message.length < 10) {
-            details.message = 'Message must be at least 10 characters.';
+        } else if (message.length < 3) {
+            details.message = 'Message must be at least 3 characters.';
         } else if (message.length > 2000) {
             details.message = 'Message must be at most 2000 characters.';
         }
