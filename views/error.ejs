@@ -1,0 +1,17 @@
+<!-- views/error.ejs -->
+<%
+  var errorMsg = 'An unexpected error occurred. Please try again later.';
+  if (typeof message !== 'undefined' && message) {
+    errorMsg = message;
+  } else if (typeof error !== 'undefined' && error && error.message) {
+    errorMsg = error.message;
+  }
+%>
+<div class="min-vh-100 bg-light d-flex flex-column justify-content-center py-5 px-3">
+  <div class="mx-auto text-center" style="max-width: 480px;">
+    <h1 class="display-1 fw-bold text-dark mb-2">500</h1>
+    <h2 class="h4 text-muted mb-4">Something Went Wrong</h2>
+    <p class="text-muted mb-4"><%= errorMsg %></p>
+    <a href="/" class="btn btn-primary px-4">Back to Home</a>
+  </div>
+</div>

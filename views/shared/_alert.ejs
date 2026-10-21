@@ -1,0 +1,6 @@
+<%if(error.length > 0 || success.length > 0){%>
+<div class="position-absolute z-2 alert alert-<%= error.length > 0 ? 'danger':'success' %>" style="top:10px;right: 10px;">
+  <%= error[0] %>
+  <%= success[0] %>
+</div>
+<%}%>
